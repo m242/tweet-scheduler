@@ -1,0 +1,70 @@
+@(title: String)(tmpl: String)(content: Html)
+@version = @{ play.Play.application().configuration().getString("application.version") }
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=en> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=en> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=en> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9" lang=en> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang=en> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>@if(title != "") {@title | Tweet Scheduler} else {Tweet Scheduler}</title>
+<meta name="description" content="Schedule your tweets anytime in the future.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+@css = @{ Seq("stylesheets/datepicker.min.css?v=" + version, "stylesheets/timepicker.min.css?v=" + version, "stylesheets/tweetscheduler.min.css?v=" + version) }
+@css.map { c => <link rel="stylesheet" href="@routes.Assets.at(c)"> }
+<script type="text/javascript" src="//use.typekit.net/pzm2tha.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<link rel="shortcut icon" href="/favicon.ico?v=@version">
+</head>
+<body id="@tmpl">
+
+<script>
+var serverTime = @{ new java.util.Date().getTime };
+var clientTime = new Date().getTime();
+var timeOffset = clientTime - serverTime;
+var tzOffset = Math.round(timeOffset / (1000 * 60 * 60));
+// Add (tzOffset * 1000 * 60 * 60) to all calculations from server time to get corresponding client time.
+</script>
+
+<div id="logo">
+  <em class="icon icon-comments-alt"></em>
+  <div>tweet <strong>scheduler</strong></div>
+</div>
+
+@content
+
+<div class="container" id="footer">
+  <div class="row">
+    <div class="span6 offset3">
+      <span id="created">Created by <a id="mark" href="http://markbeeson.net">Mark Beeson</a>.</span>
+      <a href="https://twitter.com/m242" class="twitter-follow-button" data-show-count="false">Follow @@m242</a>
+      <div class="pull-right">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="Schedule your tweets." data-via="m242">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <p style="text-align:center">
+        Source available <a href="http://github.com/m242/tweet-scheduler">on Github</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+@js = @{ Seq("javascripts/moment.min.js?v=" + version, "javascripts/bootstrap-datepicker.min.js?v=" + version, "javascripts/bootstrap-timepicker.min.js?v=" + version, "javascripts/tweetscheduler.min.js?v=" + version) }
+@js.map { j => <script src="@routes.Assets.at(j)"></script> }
+
+<script>
+var _gaq=[['_setAccount','UA-38117742-1'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET           /                     controllers.Application.index
+
+# Twitter authorization
+GET           /auth                 controllers.Application.auth
+GET           /callback             controllers.Application.callback
+
+GET           /signout              controllers.Application.signout
+
+# API endpoints
+GET           /api/scheduled        controllers.Application.scheduled
+POST          /api/tweet            controllers.Application.post
+DELETE        /api/tweet/:id        controllers.Application.delete(id: String)
+
+GET           /exception            controllers.Application.exception
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /assets/*file         controllers.Assets.at(path="/public", file)
+
+GET           /favicon.ico          controllers.Assets.at(path="/public", file="images/favicon.ico")
+GET           /robots.txt           controllers.Assets.at(path="/public", file="robots.txt")

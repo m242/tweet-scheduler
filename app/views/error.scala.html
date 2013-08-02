@@ -1,0 +1,17 @@
+@(e: Throwable)
+
+@template("Uh oh...")("error") {
+
+<div class="container">
+  <div class="row">
+    <div class="span6 offset3">
+      <div><img id="errorImage" src='@routes.Assets.at("images/deathstar.gif?v=" + play.Play.application().configuration().getString("application.version"))'></div>
+
+      <p>@{ e.getMessage }</p>
+
+      <p style="text-align:center"><a href="/">Go to the homepage.</a></p>
+    </div>
+  </div>
+</div>
+
+}

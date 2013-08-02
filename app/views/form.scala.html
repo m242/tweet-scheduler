@@ -1,0 +1,35 @@
+@(user: services.TwitterUser)
+
+@template(user.screen_name)("loggedIn") {
+
+<div id="profile">
+  <img id="profileImage" src="@user.profile_img" width="40" height="40">
+  <span id="screenName">@{ "@" + user.screen_name }</span>
+  <a id="signout" href="@routes.Application.signout()" class="button btn btn-info btn-small">Sign Out</a>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="span6 offset3">
+      <form id="tweetForm" method="post" action="@routes.Application.post()">
+        <fieldset>
+          <label for="tweet">schedule this tweet</label>
+          <textarea id="tweet" name="tweet" rows="4" cols="40" class="span6"></textarea>
+          <span class="help-block" id="characters">140</span>
+          <label id="label-date" for="datepicker" style="display:none">for this date</label>
+          <label id="label-time" for="timepicker">for this time</label>
+          <span><input type="text" id="datepicker" class="input span2"><em class="icon-calendar"></em></span>
+          <span><input type="text" id="timepicker" class="input span2"><em class="icon-time"></em></span>
+          <div id="postTime">This tweet will be posted <strong>in an hour</strong>.</div>
+          <button type="submit" class="btn btn-block btn-large btn-info"><em class="icon icon-ok-circle"></em> Schedule My Tweet</button>
+          <div id="postSuccess" class="alert alert-block alert-success">Your tweet has been scheduled.</div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6 offset3" id="tweetList"></div>
+  </div>
+</div>
+
+}

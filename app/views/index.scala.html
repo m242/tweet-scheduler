@@ -1,0 +1,12 @@
+@template("")("index") {
+
+<div class="container">
+  <div class="row">
+    <div class="span6 offset3">
+      <div><img id="indexImage" src='@routes.Assets.at("images/index.jpg?v=" + play.Play.application().configuration().getString("application.version"))'></div>
+      <a id="signin" href="@routes.Application.auth()" class="btn btn-block btn-large btn-info"><em class="icon icon-twitter"></em> Sign In With Twitter</a>
+    </div>
+  </div>
+</div>
+
+}

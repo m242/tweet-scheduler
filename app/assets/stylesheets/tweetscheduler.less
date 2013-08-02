@@ -1,0 +1,536 @@
+body {
+  background-color: #f7f5f2;
+  border-top: solid 6px #e7e5e2;
+  padding-top: 20px;
+  font-size: 18px;
+  font-family: "proxima-nova",helvetica,sans-serif;
+  font-weight: 300;
+}
+
+a {
+  color: #0088cc;
+}
+
+#logo {
+  text-align: center;
+  font-size: 48px;
+  color: #444;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 24px;
+  margin-bottom: 48px;
+  font-family: "museo-sans-rounded",helvetica,sans-serif;
+  font-weight: 100;
+  strong {
+    font-weight: 700;
+  }
+}
+
+.radius(@px) {
+  -webkit-border-radius: @px;
+  -moz-border-radius: @px;
+  border-radius: @px;
+}
+
+#indexImage {
+  .radius(6px);
+  margin-bottom: 24px;
+  width: 460px;
+}
+
+#profile {
+  text-align: center;
+  #signout {
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+}
+
+#profileImage {
+  .radius(4px);
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+#screenName {
+  font-size: 24px;
+  line-height: 24px;
+  vertical-align: middle;
+}
+
+.btn {
+  background-image: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+body .btn {
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
+.btn {
+  &:hover {
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+  }
+}
+
+.btn-info {
+  font-family: "proxima-nova",sans-serif;
+  border-color: #49afcd;
+  &:hover {
+    border-color: #2f96b4;
+  }
+}
+
+.btn-block {
+  font-family: "proxima-nova",sans-serif;
+  font-size: 24px;
+  .icon {
+    margin-right: 10px;
+  }
+  &:hover {
+    border-color: #1f86a4;
+  }
+}
+
+.btn-small {
+  text-transform: uppercase;
+}
+
+textarea {
+  .radius(3px);
+  border-color: #ddd;
+  color: #333;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 8px 10px;
+  &:focus {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  }
+  font-family: "proxima-nova",sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 30px;
+  &.error {
+    .fadeinout-class(2);
+  }
+}
+
+.fadeinout-class(@count) {
+  -webkit-animation-name: fadeinout;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: @count;
+  -moz-animation-name: fadeinout;
+  -moz-animation-duration: 1s;
+  -moz-animation-iteration-count: @count;
+  animation-name: fadeinout;
+  animation-duration: 1s;
+  animation-iteration-count: @count;
+}
+
+.fadeinout-enabled {
+  .fadeinout-class(infinite);
+}
+
+@-webkit-keyframes fadeinout {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadeinout {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadeinout {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.ie9 #tweetForm .input {
+  height: 30px;
+}
+
+#tweetForm {
+  margin-top: 36px;
+  label {
+    font-weight: 300;
+    color: #888;
+  }
+  .input {
+    .radius(3px);
+    border-color: #ddd;
+    color: #333;
+    padding: 12px 20px 12px 12px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    &:focus {
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+      border-color: rgba(82,168,236,0.8);
+    }
+    font-family: "proxima-nova",sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .help-block {
+    float: right;
+    color: #ddd;
+    font-size: 24px;
+    &.warning {
+      color: #f33;
+      font-weight: bold;
+    }
+  }
+  #label-time {
+    margin-top: 14px;
+  }
+  .icon-calendar {
+    position: relative;
+    top: -5px;
+    left: -24px;
+    font-size: 16px;
+    pointer-events: none;
+    color: #99c;
+  }
+  .icon-time {
+    position: relative;
+    top: -3px;
+    left: -28px;
+    font-size: 18px;
+    pointer-events: none;
+    color: #99c;
+  }
+  #postTime {
+    margin-top: 14px;
+    color: #888;
+    strong {
+      font-weight: 700;
+      color: #515151;
+    }
+    &.warning {
+      color: #f33;
+    }
+  }
+  .icon-cog {
+    .fadeinout-class(infinite);
+  }
+  .btn-info {
+    margin-top: 28px;
+    margin-bottom: 28px;
+  }
+}
+
+.datepicker {
+  th {
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: uppercase;
+    &.prev, &.next {
+      font-weight: bold;
+    }
+    &.switch {
+      text-transform: none;
+      font-size: 18px;
+    }
+  }
+  td.new, td.old {
+    color: #ddd;
+  }
+  td.active, td.active.active, span.active, span.active.active {
+    background-image: none;
+    background-color: #49afcd;
+    &:hover {
+      background-color: #49afcd;
+    }
+  }
+  td {
+    span.active, span.active.active {
+      background-image: none;
+      background-color: #49afcd;
+      &:hover {
+        background-color: #49afcd;
+      }
+    }
+  }
+}
+
+.bootstrap-timepicker table td.separator {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.bootstrap-timepicker-hour, .bootstrap-timepicker-minute, .bootstrap-timepicker-meridian {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.dropdown-menu {
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  -mox-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  border-color: #ddd;
+}
+
+#postSuccess {
+  margin-top: 28px;
+  margin-bottom: 28px;
+  border: none;
+  display: none;
+  text-align: center;
+  font-size: 24px;
+  background-color: #444;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+#tweetList {
+  .hdr {
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 28px;
+    margin-top: 28px;
+    .icon-twitter {
+      color: #49afcd;
+      margin-right: 10px;
+    }
+  }
+  .tweet {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: solid 1px #e3e3e3;
+    .icon-remove {
+      color: #ccc;
+      &:hover {
+        cursor: pointer;
+        color: #999;
+      }
+    }
+    .time {
+      color: #aaa;
+      margin-bottom: 12px;
+    }
+    .body {
+      font-size: 24px;
+      line-height: 30px;
+    }
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+}
+
+#signout {
+  .hdr {
+    font-weight: 100;
+    text-align: center;
+  }
+  .center {
+    margin-top: 28px;
+    text-align: center;
+    line-height: 24px;
+    margin-bottom: 42px;
+    color: #888;
+  }
+}
+
+#notfound {
+  .hdr {
+    text-align: center;
+    font-weight: 100;
+  }
+  .center {
+    margin-top: 28px;
+    text-align: center;
+    line-height: 24px;
+    margin-bottom: 42px;
+  }
+}
+
+#footer {
+  margin-top: 56px;
+  margin-bottom: 28px;
+  color: #888;
+  font-size: 14px;
+  .span6 {
+    border-top: solid 1px #e3e3e3;
+    padding-top: 28px;
+  }
+}
+
+#created {
+  vertical-align: top;
+  display: inline-block;
+  margin-right: 10px;
+  #mark {
+    vertical-align: top;
+  }
+}
+
+#errorImage {
+  width: 100%;
+  .radius(6px);
+  margin-bottom: 24px;
+}
+
+@media (min-width: 1200px) {
+  #indexImage {
+    width: 570px;
+  }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  .span6 {
+    width: 460px;
+  }
+  .offset3 {
+    margin-left: 152px;
+  }
+  textarea.span6 {
+    width: 446px;
+  }
+  input.span2 {
+    width: 126px;
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  input.span2 {
+    width: 126px;
+    display: inline-block;
+  }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  #logo {
+    font-size: 32px;
+  }
+  #footer {
+    text-align: center;
+    margin-bottom: 14px;
+    .span6 {
+      padding-top: 14px;
+    }
+    .twitter-follow-button {
+      display: block;
+      margin: 0 auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .twitter-share-button {
+      display: block;
+      margin: 0 auto;
+      padding-left: 20px;
+    }
+    .pull-right {
+      float: none;
+    }
+  }
+  #loggedIn {
+    padding-top: 5px;
+    #logo {
+      font-size: 28px;
+      margin-bottom: 8px;
+      div {
+        display: none;
+      }
+    }
+    #screenName {
+      font-size: 16px;
+    }
+    #tweetForm {
+      margin-top: 8px;
+      .input {
+        font-size: 18px;
+        line-height: 24px;
+      }
+      textarea {
+        font-size: 18px;
+        line-height: 24px;
+      }
+      .input.span2 {
+        width: 100px;
+        padding-left: 4px;
+        padding-right: 0;
+      }
+      .icon-calendar, .icon-time {
+        display: none;
+      }
+      #postTime {
+        font-size: 14px;
+      }
+    }
+    #tweetList {
+      .hdr {
+        font-size: 18px;
+        line-height: 24px;
+        margin-top: 12px;
+        margin-bottom: 24px;
+      }
+      .tweet {
+        margin-bottom: 14px;
+        padding-bottom: 14px;
+        .time {
+          font-size: 14px;
+          margin-bottom: 7px;
+        }
+        .body {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+    #postSuccess {
+      font-size: 16px;
+    }
+    #footer {
+      margin-top: 12px;
+    }
+  }
+  .bootstrap-timepicker table td.separator {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .bootstrap-timepicker-hour, .bootstrap-timepicker-minute, .bootstrap-timepicker-meridian {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  #signout {
+    #logo {
+      margin-bottom: 24px;
+    }
+    .hdr {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    .center {
+      font-size: 16px;
+      line-height: 20px;
+      margin-top: 14px;
+    }
+  }
+}
+
+
+
