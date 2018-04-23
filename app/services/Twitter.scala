@@ -29,6 +29,7 @@ trait Twitter {
     val c = new ConfigurationBuilder()
     c.setOAuthConsumerKey(TwitterKey)
     c.setOAuthConsumerSecret(TwitterSecret)
+    c.setUseSSL(true)
     c.setDebugEnabled(true)
     new TwitterFactory(c.build())
   }
